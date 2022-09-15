@@ -6,6 +6,7 @@ function App() {
       <Simpsons/>
     </div>
   );
+
 }
 
 export default App;
