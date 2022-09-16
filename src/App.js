@@ -1,9 +1,10 @@
-import Simpsons from "./simpons/Simpsons";
+import Characters from "./rickandmortie/Characters";
+
 
 function App() {
   return (
     <div>
-      <Simpsons/>
+<Characters/>
 
     </div>
   );
