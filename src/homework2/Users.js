@@ -1,39 +1,42 @@
 import {useEffect, useState} from "react";
-import User from "./User";
+import Launch from "./User";
 
 
-function Users() {
-    let [users, setUsers] = useState([]);
-    let [user,setUser] =useState({})
 
-    const lift = (obj)=>{
-       setUser(obj)
-    }
+
+function Launches() {
+    let [launches, setLaunches] = useState([]);
+
+
+
 
 
 useEffect(()=> {
 
 
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://api.spacexdata.com/v3/launches')
         .then(value => value.json())
         .then(value => {
-            setUsers(value);
+            setLaunches(value.filter((value) => value.launch_year !== '2020'))
+
         });
 },[]);
 
 
     return (
         <div>
-            <hr/>
-                   {user && <h3> {user.email} --- {user.phone} </h3>}
-             <hr/>
+
             {
-                users.map(user => <User key={user.id}
-                user={user} lift={lift}
-            />)
+                launches.map(launch =>
+            <
+                Launch key={launch.flight_number}
+                launch={launch}
+
+            />
+            )
             }
         </div>
     );
 }
 
-export default Users;
+export default Launches;

@@ -1,15 +1,14 @@
 
-function User(props) {
-    let {user:user, lift} = props
+function Launch(props) {
+    let {launch:launch} = props
     return (
         <div>
-           <h3>{user.id}----{user.name}</h3>
-            <button onClick={()=>{
-                lift(user);
-            }}>Details</button>
+
+           <h3>{launch.mission_name}----{launch.launch_year}</h3>
+            <img src= {launch.links.mission_patch_small}/>
 
         </div>
     );
 }
 
-export default User;
+export default Launch;
